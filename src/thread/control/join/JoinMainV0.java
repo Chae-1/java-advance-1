@@ -1,7 +1,7 @@
-package thread.join;
+package thread.control.join;
 
 import static thread.start.MyLogger.log;
-import static thread.util.ThreadUtils.sleep;
+import static util.ThreadUtils.sleep;
 
 public class JoinMainV0 {
     public static void main(String[] args) {

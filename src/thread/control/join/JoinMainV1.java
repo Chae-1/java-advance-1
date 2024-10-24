@@ -1,9 +1,9 @@
-package thread.join;
+package thread.control.join;
 
 import static thread.start.MyLogger.log;
-import static thread.util.ThreadUtils.sleep;
+import static util.ThreadUtils.sleep;
 
-public class JoinMainV3 {
+public class JoinMainV1 {
 
     public static void main(String[] args) {
         log("Start");
@@ -17,9 +17,8 @@ public class JoinMainV3 {
         t1.start();
         t2.start();
 
-
-        // t1, t2 스레드가 종료될 때 까지 현재 스레드 대기
-        log("join() - main 스레드가 t1, t2 스레드가 끝날 때까지 대기");
+        log("task1.result = " + task1.result);
+        log("task2.result = " + task2.result);
 
         try {
             t1.join();
@@ -27,9 +26,6 @@ public class JoinMainV3 {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-
-        log("task1.result = " + task1.result);
-        log("task2.result = " + task2.result);
 
         int sumAll = task1.result + task2.result;
         log("sumAll = " + sumAll);

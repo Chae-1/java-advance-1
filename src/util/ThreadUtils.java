@@ -1,4 +1,4 @@
-package thread.util;
+package util;
 
 import static thread.start.MyLogger.log;
 
