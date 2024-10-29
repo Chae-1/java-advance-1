@@ -1,6 +1,7 @@
 package thread.bounded;
 
 import static thread.start.MyLogger.log;
+import static util.ThreadUtils.sleep;
 
 import java.util.ArrayDeque;
 import java.util.Queue;
@@ -16,9 +17,9 @@ public class BoundedQueueV2 implements BoundedQueue {
 
     @Override
     public synchronized void put(String data) {
-        if (queue.size() == max) {
-            log("[put] 큐가 가득참, 버림");
-            return ;
+        while (queue.size() == max) {
+            log("[put] 큐가 가득참, 생산자 대기.");
+            sleep(100);
         }
 
         queue.offer(data);
@@ -26,8 +27,9 @@ public class BoundedQueueV2 implements BoundedQueue {
 
     @Override
     public synchronized String take() {
-        if (queue.isEmpty()) {
-            return null;
+        while (queue.isEmpty()) {
+            log("[take] 큐에 데이터가 없음, 소비자 대기");
+            sleep(100);
         }
 
         return queue.poll();
