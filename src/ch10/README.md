@@ -94,5 +94,22 @@ public class SynchronizedListMain {
   - ConcurrentHashMap: HashMap의 대안
   - ConcurrentSkipListMap: TreeMap의 대안
 - **Queue**
-  - Concurrent
+  - ConcurrentLinkedQueue: 동시성 큐, Non-blocking 큐이다.
+- **Deque**
+  - ConcurrentLinkedDeque: 동시성 덱, 비 차단 덱이다.
+- **BlockingQueue**
+  - ArrayBlockingQueue
+    - 크기가 고정된 블로킹 큐
+    - fair 모드를 사용할 수 있다.
+  - LinkedBlockingQueue
+    - 크기가 무한하거나 고정된 블로킹 큐
+  - PriorityBlockingQueue
+    - 우선순위가 높은 요소를 먼저 처리한다.
+  - SynchronousQueue
+    - 데이터를 저장하지 않는 블로킹 큐.
+    - 생산자가 데이터를 추가하면 소비자가 그 데이터를 받을 때까지 대기한다.
+  - DelayQueue
+    - 지연된 요소를 처리하는 블로킹 큐.
+
+
 
